@@ -1,0 +1,238 @@
+/* :root{
+    --header-bg-color: #fff;
+    --main-bg-color: #fff;
+    --main-text-color: #fff;
+} */
+
+html{
+    box-sizing: border-box;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-image: url(../images/back-to-future.jpg);
+    background-position: 100%;
+    background-size: 100% 850px;
+    background-repeat: no-repeat;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.container{
+    width: 100%;
+    max-width: 1320px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+ol,
+ul{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+.activeInfo{
+    display: none;
+}
+.exam-section-title{
+    margin: 90px 0;
+    padding: 0;
+    font-size: 60px;
+    font-weight: lighter;
+    color: #fff;
+}
+
+.exam-section-choose{
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.choose-button{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 15px;
+    background-color: inherit;
+    color: #fff;
+    padding: 15px 30px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight:bolder;
+    transition: transform 0.3s;
+}
+
+.choose-button:hover{
+    box-shadow: 0 6px 16px #fff;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+.time{
+    position: relative;
+    top: -20px;
+    left: 160px;
+    font-size: 40px;
+    font-weight: lighter;
+}
+.js-quiz-img{
+    width: 160px;
+    height: 160px;
+    margin: 0 0 20px 160px;
+}
+.start_btn,
+.info_box,
+.quiz_box,
+.result_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.quiz_box.activeQuiz,
+.result_box.activeResult {
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.start_btn {
+    font-weight: 700;
+    font-size: 25px;
+    color: #000;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color:inherit;
+    cursor: pointer;
+}
+
+.quiz_box{
+    width: 550px;
+    background-color: inherit;
+    border-radius: 7px;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.quiz_main{
+    padding: 25px 30px 20px 30px;
+    background-color: inherit;
+}
+
+.quiz_main .quiz_text{
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+}
+.quiz_main .option_list{
+    padding: 20px 0;
+    display: block;
+}
+.quiz_main .option_list .option{
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quiz_main .option_list .option.correct{ /* to'g'ri variant */
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c1d7c6;
+}
+
+.quiz_main .option_list .option.incorrect{ /* to'g'ri variant */
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f8d7da;
+}
+.quiz_main .option_list .option.disabled{
+    pointer-events: none;
+}
+.next_btn{
+    margin: 0 30px 20px;
+    float: right;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #ff6600;
+}
+
+.result_box{
+    font-weight: 700;
+    font-size: 20px;
+    width: 460px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    padding: 25px 30px;
+}
+.result_box .restart{
+    background-color: #77797a;
+    color: #fff;
+    font-size: 18px;
+    padding: 0 20px;
+    height: 45px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
